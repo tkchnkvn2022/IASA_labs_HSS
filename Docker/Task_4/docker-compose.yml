@@ -1,0 +1,33 @@
+version: "3.1"
+
+services:
+  task3:
+   image: node:latest
+   working_dir: /json
+   volumes:
+     - ./json_server:/json
+   expose:
+     - 8000
+   command: bash script.sh
+
+  task2:
+   image: node:latest
+   working_dir: /lite_server
+   volumes:
+     - ./lite_server:/lite_server
+   expose:
+     - 3000
+   command: bash script.sh
+
+  web:
+   image: nginx
+   volumes:
+     - ./templates:/etc/nginx/templates
+   ports:
+     - "8080:80"
+   environment:
+     - NGINX_HOST=0.0.0.0
+     - NGINX_PORT=80
+   links:
+     - task2
+     - task3
