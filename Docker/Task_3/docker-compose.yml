@@ -1,0 +1,11 @@
+version: "3.1"
+
+services:
+    task3:
+      image: node:latest
+      working_dir: /json_server
+      volumes:
+        - ./:/json_server
+      ports:
+        - 8000:8000
+      command: bash script.sh
