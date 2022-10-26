@@ -1,0 +1,16 @@
+server {
+    listen 80;
+    server_name 0.0.0.0;
+    location /task3/posts {
+        proxy_pass http://task3:8000/posts;
+    }
+    location /task3/comments {
+        proxy_pass http://task3:8000/comments;
+    }
+    location /task3/profile {
+        proxy_pass http://task3:8000/profile;
+    }
+    location / {
+        proxy_pass http://task2:3000;
+    }
+}
