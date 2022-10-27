@@ -1,6 +1,6 @@
 ## IASA Labs High Scalable Systems
 
-**Ivanna Tkachenko**
+*Ivanna Tkachenko*
 
 ### LAB_1 Docker
 
